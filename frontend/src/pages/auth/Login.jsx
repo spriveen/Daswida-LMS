@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// IMPORT INPUT FIELD
+import InputField from "../../components/forms/InputField";
+
 const Login = () => {
 
   const navigate = useNavigate();
@@ -67,23 +70,21 @@ const Login = () => {
         >
 
           {/* EMAIL */}
-          <input
+          <InputField
             type="email"
             name="email"
             placeholder="Enter Email"
             value={formData.email}
             onChange={handleChange}
-            className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 text-white focus:border-yellow-400 outline-none"
           />
 
           {/* PASSWORD */}
-          <input
+          <InputField
             type="password"
             name="password"
             placeholder="Enter Password"
             value={formData.password}
             onChange={handleChange}
-            className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 text-white focus:border-yellow-400 outline-none"
           />
 
           {/* LOGIN BUTTON */}
