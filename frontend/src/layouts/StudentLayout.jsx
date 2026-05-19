@@ -1,11 +1,18 @@
-import React from 'react'
+// src/layouts/StudentLayout.jsx
 
-const StudentLayout = () => {
+
+import { Outlet } from "react-router-dom";
+
+function StudentLayout() {
   return (
     <div>
-      Student Layout
+
+      
+
+      <Outlet />
+
     </div>
-  )
+  );
 }
 
-export default StudentLayout
+export default StudentLayout;

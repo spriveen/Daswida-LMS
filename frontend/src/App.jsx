@@ -1,11 +1,19 @@
-import React from 'react'
+// src/App.jsx
 
-const App = () => {
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import Navbar from "./components/navbar/Navbar";
+
+function App() {
   return (
-    <div>
-      Hello world!
-    </div>
-  )
+    <BrowserRouter>
+
+      <Navbar />
+
+      <AppRoutes />
+
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

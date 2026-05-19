@@ -1,11 +1,18 @@
-import React from 'react'
+// src/layouts/AdminLayout.jsx
 
-const AdminLayout = () => {
+
+import { Outlet } from "react-router-dom";
+
+function AdminLayout() {
   return (
     <div>
-      Admin Layout
+
+     
+
+      <Outlet />
+
     </div>
-  )
+  );
 }
 
-export default AdminLayout
+export default AdminLayout;
