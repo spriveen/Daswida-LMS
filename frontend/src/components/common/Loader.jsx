@@ -1,11 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Loader = () => {
   return (
     <div>
-      Hello world!
+      Loader...
     </div>
   )
 }
 
-export default App
+export default Loader

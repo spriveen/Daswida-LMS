@@ -1,11 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Table = () => {
   return (
     <div>
-      Hello world!
+      Table...
     </div>
   )
 }
 
-export default App
+export default Table

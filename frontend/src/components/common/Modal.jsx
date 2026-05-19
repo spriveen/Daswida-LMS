@@ -1,11 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Modal = () => {
   return (
     <div>
-      Hello world!
+      Modal...
     </div>
   )
 }
 
-export default App
+export default Modal
