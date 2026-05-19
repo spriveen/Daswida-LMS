@@ -1,18 +1,18 @@
+// src/pages/auth/Login.jsx
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ onClose }) => {
+const Login = () => {
+
   const navigate = useNavigate();
 
   const [role, setRole] = useState("student");
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
-    phone: "",
-    subject: "",
-    studentId: "",
   });
 
   const handleChange = (e) => {
@@ -25,31 +25,51 @@ const Login = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert(`${role} Login Successful ✅`);
+    // SIMPLE LOGIN CHECK
+    if (
+      formData.username &&
+      formData.email &&
+      formData.password
+    ) {
 
-    if (onClose) onClose();
+      localStorage.setItem("isLoggedIn", "true");
 
-    if (role === "student") {
-      navigate("/student/dashboard");
+      alert(`${role} Login Successful ✅`);
+
+      // ROLE BASED NAVIGATION
+      if (role === "student") {
+
+        navigate("/student/dashboard");
+
+      } else {
+
+        navigate("/teacher/dashboard");
+
+      }
+
     } else {
-      navigate("/teacher/dashboard");
+
+      alert("Please fill all fields ❌");
+
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
-      <div className="w-[420px] p-8 rounded-2xl border border-gray-800 bg-[#111] text-white shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-black px-4">
+
+      <div className="w-full max-w-[420px] p-8 rounded-3xl border border-gray-800 bg-[#111] text-white shadow-2xl">
 
         {/* TITLE */}
-        <h2 className="text-3xl font-bold text-yellow-400 mb-6 text-center">
+        <h2 className="text-4xl font-extrabold text-yellow-400 mb-8 text-center">
           DASWIDA LMS Login
         </h2>
 
-        {/* ROLE SELECT */}
+        {/* ROLE BUTTONS */}
         <div className="flex gap-3 mb-6 justify-center">
+
           <button
             onClick={() => setRole("student")}
-            className={`px-4 py-2 rounded-lg font-bold ${
+            className={`px-5 py-2 rounded-xl font-bold transition ${
               role === "student"
                 ? "bg-yellow-400 text-black"
                 : "bg-gray-800 text-white"
@@ -60,7 +80,7 @@ const Login = ({ onClose }) => {
 
           <button
             onClick={() => setRole("teacher")}
-            className={`px-4 py-2 rounded-lg font-bold ${
+            className={`px-5 py-2 rounded-xl font-bold transition ${
               role === "teacher"
                 ? "bg-yellow-400 text-black"
                 : "bg-gray-800 text-white"
@@ -68,19 +88,23 @@ const Login = ({ onClose }) => {
           >
             Teacher
           </button>
+
         </div>
 
         {/* FORM */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-5"
+        >
 
-          {/* NAME */}
+          {/* USERNAME */}
           <input
             type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
+            name="username"
+            placeholder="User Name"
+            value={formData.username}
             onChange={handleChange}
-            className="p-3 rounded-lg bg-black border border-gray-700 focus:border-yellow-400 outline-none"
+            className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 focus:border-yellow-400 outline-none"
           />
 
           {/* EMAIL */}
@@ -90,7 +114,7 @@ const Login = ({ onClose }) => {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="p-3 rounded-lg bg-black border border-gray-700 focus:border-yellow-400 outline-none"
+            className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 focus:border-yellow-400 outline-none"
           />
 
           {/* PASSWORD */}
@@ -100,65 +124,50 @@ const Login = ({ onClose }) => {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="p-3 rounded-lg bg-black border border-gray-700 focus:border-yellow-400 outline-none"
+            className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 focus:border-yellow-400 outline-none"
           />
 
-          {/* STUDENT FIELDS */}
-          {role === "student" && (
-            <input
-              type="text"
-              name="studentId"
-              placeholder="Student ID"
-              value={formData.studentId}
-              onChange={handleChange}
-              className="p-3 rounded-lg bg-black border border-gray-700 focus:border-yellow-400 outline-none"
-            />
-          )}
-
-          {/* TEACHER FIELDS */}
-          {role === "teacher" && (
-            <>
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="p-3 rounded-lg bg-black border border-gray-700 focus:border-yellow-400 outline-none"
-              />
-
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="p-3 rounded-lg bg-black border border-gray-700 focus:border-yellow-400 outline-none"
-              />
-            </>
-          )}
-
-          {/* BUTTON */}
+          {/* LOGIN BUTTON */}
           <button
             type="submit"
-            className="bg-yellow-400 text-black font-bold py-3 rounded-lg hover:scale-105 transition"
+            className="h-[52px] bg-yellow-400 text-black font-bold rounded-xl hover:scale-105 transition duration-300"
           >
             Login
           </button>
+
         </form>
 
+        {/* Forget Password */}
+        
+<p className="text-gray-400 text-sm text-center mt-4">
+
+  Forgot your password?{" "}
+
+  <span
+    onClick={() => navigate("/forgot-password")}
+    className="text-yellow-400 cursor-pointer"
+  >
+    Reset Password
+  </span>
+
+</p>
+
         {/* REGISTER */}
-        <p className="text-gray-400 text-sm text-center mt-4">
+        <p className="text-gray-400 text-sm text-center mt-5">
+
           Don't have an account?{" "}
+
           <span
             onClick={() => navigate("/register")}
             className="text-yellow-400 cursor-pointer"
           >
             Register
           </span>
+
         </p>
 
       </div>
+
     </div>
   );
 };
