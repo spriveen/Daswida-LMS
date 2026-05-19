@@ -40,9 +40,11 @@ function AppRoutes() {
     <Routes>
 
       {/* AUTH ROUTES */}
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+
+      
 
 
       {/* STUDENT ROUTES */}

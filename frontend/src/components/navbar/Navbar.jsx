@@ -1,6 +1,7 @@
 // src/components/navbar/Navbar.jsx
 
 import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -59,11 +60,14 @@ function Navbar() {
         </button>
 
         {/* LOGIN BUTTON */}
-        <button className="h-[48px] px-6 rounded-xl border border-gray-700 text-white hover:border-yellow-400 hover:text-yellow-400 transition duration-300">
+        {/* LOGIN BUTTON */}
+{/* <Link to="/login"> */}
 
-          Login
+  <button className="h-[48px] px-6 rounded-xl border border-gray-700 text-white hover:border-yellow-400 hover:text-yellow-400 transition duration-300">
+    <Link to="/login">Login</Link>
+  </button>
+    
 
-        </button>
 
       </div>
 
