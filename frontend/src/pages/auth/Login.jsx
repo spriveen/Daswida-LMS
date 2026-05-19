@@ -40,9 +40,10 @@ const Login = () => {
       // SAVE LOGIN STATUS
       localStorage.setItem("isLoggedIn", "true");
 
+      // SUCCESS MESSAGE
       alert("Login Successful ✅");
 
-      // REDIRECT
+      // REDIRECT TO STUDENT DASHBOARD
       navigate("/student/dashboard");
 
     } else {

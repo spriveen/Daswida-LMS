@@ -1,18 +1,24 @@
-// src/layouts/StudentLayout.jsx
-
-
+import React from "react";
 import { Outlet } from "react-router-dom";
 
-function StudentLayout() {
+import Navbar from "../components/navbar/Navbar";
+
+const StudentLayout = () => {
   return (
-    <div>
 
-      
+    <div className="min-h-screen bg-black text-white">
 
-      <Outlet />
+      {/* NAVBAR */}
+      <Navbar />
+
+      {/* PAGE CONTENT */}
+      <div className="p-6">
+        <Outlet />
+      </div>
 
     </div>
+
   );
-}
+};
 
 export default StudentLayout;

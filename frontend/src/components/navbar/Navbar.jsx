@@ -4,34 +4,53 @@ import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
   return (
+
     <nav className="w-full h-[85px] bg-black border-b border-[#1f1f1f] flex items-center justify-between px-10">
 
       {/* LEFT SIDE LOGO */}
       <div className="flex items-center">
+
         <h1 className="text-3xl font-extrabold tracking-wide">
+
           <span className="text-yellow-400">DASWIDA</span>
+
           <span className="text-white ml-2">LMS</span>
+
         </h1>
+
       </div>
 
       {/* CENTER MENU */}
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-10 h-full">
 
-        <button className="text-yellow-400 font-semibold border-b-2 border-yellow-400 h-[85px]">
+        {/* STUDENTS */}
+        <button className="text-gray-400 hover:text-white hover:border-yellow-400 border-b-2 border-transparent h-full flex items-center transition duration-300">
+
           Students
+
         </button>
 
-        <button className="text-gray-400 hover:text-white transition duration-300">
+        {/* TEACHERS */}
+        <button className="text-gray-400 hover:text-white hover:border-yellow-400 border-b-2 border-transparent h-full flex items-center transition duration-300">
+
           Teachers
+
         </button>
 
-        <button className="text-gray-400 hover:text-white transition duration-300">
+        {/* COURSES */}
+        <button className="text-gray-400 hover:text-white hover:border-yellow-400 border-b-2 border-transparent h-full flex items-center transition duration-300">
+
           Courses
+
         </button>
 
-        <button className="text-gray-400 hover:text-white transition duration-300">
+        {/* ADMIN */}
+        <button className="text-gray-400 hover:text-white hover:border-yellow-400 border-b-2 border-transparent h-full flex items-center transition duration-300">
+
           Admin
+
         </button>
 
       </div>
@@ -59,20 +78,23 @@ function Navbar() {
 
         </button>
 
-        
         {/* LOGIN BUTTON */}
-{/* <Link to="/login"> */}
+        <Link to="/login">
 
-  <button className="h-[48px] px-6 rounded-xl border border-gray-700 text-white hover:border-yellow-400 hover:text-yellow-400 transition duration-300">
-    <Link to="/login">Login</Link>
-  </button>
-    
+          <button className="h-[48px] px-6 rounded-xl border border-gray-700 text-white hover:border-yellow-400 hover:text-yellow-400 transition duration-300">
 
+            Login
+
+          </button>
+
+        </Link>
 
       </div>
 
     </nav>
+
   );
+
 }
 
 export default Navbar;

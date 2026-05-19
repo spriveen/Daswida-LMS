@@ -19,9 +19,11 @@ function Layout() {
 
   return (
     <>
+    
       {/* NAVBAR + SIDEBAR hide when login open */}
       {!hideLayout && <Navbar onLoginClick={() => setShowLogin(true)} />}
       {!hideLayout && <Sidebar />}
+      
 
       <AppRoutes />
 
@@ -36,6 +38,7 @@ function Layout() {
               className="absolute top-2 right-2 text-white"
             >
               X
+              
             </button>
 
             <Login />
