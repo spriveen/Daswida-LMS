@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// IMPORT INPUT FIELD
+// IMPORT COMPONENTS
 import InputField from "../../components/forms/InputField";
+import PasswordField from "../../components/forms/PasswordField";
 
 const Login = () => {
 
@@ -79,8 +80,7 @@ const Login = () => {
           />
 
           {/* PASSWORD */}
-          <InputField
-            type="password"
+          <PasswordField
             name="password"
             placeholder="Enter Password"
             value={formData.password}
