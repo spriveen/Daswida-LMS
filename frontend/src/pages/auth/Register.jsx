@@ -7,8 +7,10 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  // ROLE STATE
   const [role, setRole] = useState("student");
 
+  // FORM DATA
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -17,24 +19,29 @@ const Register = () => {
     subject: "",
   });
 
+  // HANDLE INPUT
   const handleChange = (e) => {
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
   };
 
+  // HANDLE REGISTER
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
-    // SIMPLE VALIDATION
+    // VALIDATION
     if (
       formData.username &&
       formData.email &&
       formData.password
     ) {
 
-      alert("Registration Successful ✅");
+      alert(`${role} Registration Successful ✅`);
 
       navigate("/login");
 
@@ -43,9 +50,11 @@ const Register = () => {
       alert("Please fill all fields ❌");
 
     }
+
   };
 
   return (
+
     <div className="min-h-screen bg-black flex items-center justify-center px-4">
 
       <div className="w-full max-w-[500px] bg-[#111111] border border-gray-800 rounded-3xl p-8 shadow-2xl">
@@ -55,29 +64,38 @@ const Register = () => {
           DASWIDA LMS Register
         </h1>
 
+        {/* ROLE BUTTONS */}
+        <div className="flex gap-3 mb-6 justify-center">
+
+          <button
+            onClick={() => setRole("student")}
+            className={`px-5 py-2 rounded-xl font-bold transition ${
+              role === "student"
+                ? "bg-yellow-400 text-black"
+                : "bg-gray-800 text-white"
+            }`}
+          >
+            Student
+          </button>
+
+          <button
+            onClick={() => setRole("teacher")}
+            className={`px-5 py-2 rounded-xl font-bold transition ${
+              role === "teacher"
+                ? "bg-yellow-400 text-black"
+                : "bg-gray-800 text-white"
+            }`}
+          >
+            Teacher
+          </button>
+
+        </div>
+
         {/* FORM */}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-5"
         >
-
-          {/* ROLE */}
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 text-white outline-none"
-          >
-
-            <option value="student">
-              Student
-            </option>
-
-            <option value="teacher">
-              Teacher
-            </option>
-
-          </select>
-
 
           {/* USERNAME */}
           <input
@@ -89,7 +107,6 @@ const Register = () => {
             className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 text-white outline-none focus:border-yellow-400"
           />
 
-
           {/* EMAIL */}
           <input
             type="email"
@@ -99,7 +116,6 @@ const Register = () => {
             onChange={handleChange}
             className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 text-white outline-none focus:border-yellow-400"
           />
-
 
           {/* PASSWORD */}
           <input
@@ -111,8 +127,7 @@ const Register = () => {
             className="h-[52px] px-4 rounded-xl bg-black border border-gray-700 text-white outline-none focus:border-yellow-400"
           />
 
-
-          {/* STUDENT NIC */}
+          {/* STUDENT FIELD */}
           {role === "student" && (
 
             <input
@@ -126,8 +141,7 @@ const Register = () => {
 
           )}
 
-
-          {/* TEACHER SUBJECT */}
+          {/* TEACHER FIELD */}
           {role === "teacher" && (
 
             <input
@@ -141,7 +155,6 @@ const Register = () => {
 
           )}
 
-
           {/* REGISTER BUTTON */}
           <button
             type="submit"
@@ -152,7 +165,6 @@ const Register = () => {
 
         </form>
 
-
         {/* LOGIN LINK */}
         <p className="text-center text-gray-400 mt-6">
 
@@ -160,7 +172,7 @@ const Register = () => {
 
           <span
             onClick={() => navigate("/login")}
-            className="text-yellow-400 cursor-pointer"
+            className="text-yellow-400 cursor-pointer hover:underline"
           >
             Login
           </span>
@@ -170,6 +182,7 @@ const Register = () => {
       </div>
 
     </div>
+
   );
 };
 
