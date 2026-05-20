@@ -19,10 +19,10 @@ function Layout() {
 
   return (
     <>
-    
+
       {/* NAVBAR + SIDEBAR hide when login open */}
-      {!hideLayout && <Navbar onLoginClick={() => setShowLogin(true)} />}
-      {!hideLayout && <Sidebar />}
+      {/*!hideLayout && <Navbar onLoginClick={() => setShowLogin(true)} />}
+      {!hideLayout && <Sidebar />*/}
       
 
       <AppRoutes />
@@ -31,14 +31,14 @@ function Layout() {
       {showLogin && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
           <div className="relative">
-            
+
             {/* close button */}
             <button
               onClick={() => setShowLogin(false)}
               className="absolute top-2 right-2 text-white"
             >
               X
-              
+
             </button>
 
             <Login />

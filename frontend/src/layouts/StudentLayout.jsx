@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Sidebar from "../components/sidebar/Sidebar";
 
 import Navbar from "../components/navbar/Navbar";
 
@@ -11,9 +12,13 @@ const StudentLayout = () => {
       {/* NAVBAR */}
       <Navbar />
 
-      {/* PAGE CONTENT */}
-      <div className="p-6">
-        <Outlet />
+      {/* SIDEBAR + CONTENT */}
+      <div className="flex">
+        <Sidebar />
+        {/* PAGE CONTENT */}
+        <div className="flex-1 p-6">
+          <Outlet />
+        </div>
       </div>
 
     </div>

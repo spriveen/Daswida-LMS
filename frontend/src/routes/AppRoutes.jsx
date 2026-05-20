@@ -27,9 +27,6 @@ import Courses from "../pages/admin/Courses";
 import Teachers from "../pages/admin/Teachers";
 import Students from "../pages/admin/Students";
 
-// Protected Route
-import ProtectedRoute from "./ProtectedRoute";
-
 // Layouts
 import StudentLayout from "../layouts/StudentLayout";
 import TeacherLayout from "../layouts/TeacherLayout";
@@ -44,17 +41,10 @@ function AppRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
-      
-
-
       {/* STUDENT ROUTES */}
       <Route
         path="/student"
-        element={
-          <ProtectedRoute role="student">
-            <StudentLayout />
-          </ProtectedRoute>
-        }
+        element={<StudentLayout />}
       >
         <Route path="dashboard" element={<StudentDashboard />} />
         <Route path="courses" element={<MyCourses />} />
@@ -63,15 +53,10 @@ function AppRoutes() {
         <Route path="profile" element={<StudentProfile />} />
       </Route>
 
-
       {/* TEACHER ROUTES */}
       <Route
         path="/teacher"
-        element={
-          <ProtectedRoute role="teacher">
-            <TeacherLayout />
-          </ProtectedRoute>
-        }
+        element={<TeacherLayout />}
       >
         <Route path="dashboard" element={<TeacherDashboard />} />
         <Route path="create-course" element={<CreateCourse />} />
@@ -80,15 +65,10 @@ function AppRoutes() {
         <Route path="profile" element={<TeacherProfile />} />
       </Route>
 
-
       {/* ADMIN ROUTES */}
       <Route
         path="/admin"
-        element={
-          <ProtectedRoute role="admin">
-            <AdminLayout />
-          </ProtectedRoute>
-        }
+        element={<AdminLayout />}
       >
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="users" element={<Users />} />
