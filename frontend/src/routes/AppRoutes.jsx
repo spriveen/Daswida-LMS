@@ -31,10 +31,14 @@ import Students from "../pages/admin/Students";
 import StudentLayout from "../layouts/StudentLayout";
 import TeacherLayout from "../layouts/TeacherLayout";
 import AdminLayout from "../layouts/AdminLayout";
+import RootLayout from "../layouts/RootLayout";
 
 function AppRoutes() {
   return (
     <Routes>
+
+      {/* ROOT ROUTE */}
+      <Route path="/" element={<RootLayout />} />
 
       {/* AUTH ROUTES */}
       <Route path="/login" element={<Login />} />
